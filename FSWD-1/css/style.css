@@ -1,0 +1,500 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Source Sans Pro', sans-serif
+}
+
+.a-hover:hover {
+    background-color: lightgrey;
+}
+
+i {
+    font-style: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    padding: 0;
+    margin: 0;
+}
+/*------------------------------*/
+.content-table {
+    border-collapse: collapse;
+    margin: auto;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+/*--------------------------------*/
+
+/*todo chananel investigate it*/
+div, section, span {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-3 {
+    border-radius: 4px;
+    background-color: #78C557;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 700px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+
+
+}
+
+.button-3 span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button-3 span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button-3:hover span {
+    padding-right: 25px;
+}
+
+.button-3:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.col-12 {
+    width: 100%;
+    float: left;
+}
+
+.col-11 {
+    width: 91.66666667%;
+    float: left;
+}
+
+.col-10 {
+    width: 83.33333333%;
+    float: left;
+}
+
+.col-9 {
+    width: 75%;
+    float: left;
+}
+
+.col-8 {
+    width: 66.66666667%;
+    float: left;
+}
+
+.col-7 {
+    width: 58.33333333%;
+    float: left;
+}
+
+.col-6 {
+    width: 50%;
+    float: left;
+}
+
+.col-5 {
+    width: 41.66666667%;
+    float: left;
+}
+
+.col-4 {
+    width: 33.33333333%;
+    float: left;
+}
+
+.col-3 {
+    width: 25%;
+    float: left;
+}
+
+.col-2 {
+    width: 16.66666667%;
+    float: left;
+}
+
+.col-1 {
+    width: 8.33333333%;
+    float: left;
+}
+
+
+.center {
+    text-align: center
+}
+
+.left {
+    text-align: left
+}
+
+.right {
+    text-align: right
+}
+
+.padding-tblr {
+    padding: 15px
+}
+
+.padding-tb {
+    padding: 15px 0
+}
+
+.padding-lr {
+    padding: 0 15px
+}
+
+/*todo chananel investigate it*/
+.container::after, .container::before {
+    clear: both;
+    content: "";
+    display: table
+}
+
+.section-padding {
+    padding: 50px 0
+}
+
+.margin-bottom-30 {
+    margin-bottom: 15px
+}
+
+@media only screen and (min-width: 1024px) {
+    .container {
+        width: 1024px;
+        margin: 0 auto;
+        padding: 0 15px;
+        box-sizing: border-box
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 1023px) {
+    .container {
+        width: 768px;
+        margin: 0 auto;
+        padding: 0 15px;
+        box-sizing: border-box
+    }
+    table{
+        visibility: collapse;
+    }
+    .button-2{
+        color: white;
+        font-size: 40px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 15px;
+        box-sizing: border-box
+    }
+
+    table{
+        visibility: collapse;
+    }
+
+    .button-2{
+        color: white;
+    }
+}
+
+.color-light-white {
+    background-color: #f8f8f8
+}
+
+.color-white {
+    background-color: #fff
+}
+
+.font-color-s-light {
+    color: #484848
+}
+
+.font-color-m-light {
+    color: #545454
+}
+
+@media only screen and (max-width: 319px) {
+    .banner_brief_text {
+        display: none
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .container, .mb-12 {
+        width: 100%
+    }
+
+    .section-padding {
+        padding: 20px 0
+    }
+
+    [class*=col-] {
+        content: "";
+        width: 100%
+    }
+
+    .mob-menu-icon {
+        display: block !important
+    }
+
+    .mb-11 {
+        width: 91.66666667%
+    }
+
+    .mb-10 {
+        width: 83.33333333%
+    }
+
+    .mb-9 {
+        width: 75%
+    }
+
+    .mb-8 {
+        width: 66.66666667%
+    }
+
+    .mb-7 {
+        width: 58.33333333%
+    }
+
+    .mb-6 {
+        width: 50%
+    }
+
+    .mb-5 {
+        width: 41.66666667%
+    }
+
+    .mb-4 {
+        width: 33.33333333%
+    }
+
+    .mb-3 {
+        width: 25%
+    }
+
+    .mb-2 {
+        width: 16.66666667%
+    }
+
+    .mb-1 {
+        width: 8.33333333%
+    }
+
+    .mb-center {
+        text-align: center
+    }
+
+    .mb-left {
+        text-align: left
+    }
+
+    .mb-right {
+        text-align: right
+    }
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+
+
+.col-13 {
+    width: 30%;
+    float: left;
+}
+
+.texture {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),url(/media/Healthy-Colorful-Smoothies-on-Jars.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.pad-5 {
+    padding: 5px;
+    height: 235px;
+    border: 1px solid #f5f5f5;
+    border-radius: 3px;
+    box-sizing: border-box
+}
+
+video {
+    height: 210px;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    width: 90%;
+    /*height:auto;*/
+}
+
+[class*=fruit-] {
+    height: 210px;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    /*height:auto;*/
+}
+
+.fruit-1 {
+    background-image: url(/media/fruit_11.jpg);
+    background-position: center 0;
+    background-size: cover;
+}
+
+.fruit-2 {
+    background-image: url(/media/citrus-smoothie.jpg);
+    background-position: center 0;
+    background-size: cover;
+}
+
+.fruit-3 {
+    background-image: url(/media/fruit_9.jpg);
+    background-position: center 0;
+    background-size: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.sp {
+    width: 1px;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.social-link {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.message-text {
+    height: 100px;
+    padding: 10px 0px;
+    resize: none;
+}
+
+.submit-button {
+    border: none;
+    border-bottom: 2px solid #64A548;
+}
+
+.color-l-gray {
+    color: #606873;
+}
+
+.ver-align-middle {
+    vertical-align: middle;
+}
+
+.pad-top-25 {
+    padding-top: 25px;
+}
+
+.made-with {
+    color: #E5E5E5;
+    font-weight: 100;
+    font-size: 15px;
+}
+
+.heart-icon {
+    color: rgb(216, 24, 24);
+    font-size: 20px;
+}
+
+.mapouter {
+    position: relative;
+    text-align: right;
+    height: 450px;
+    width: 100%;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 450px;
+    width: 100%;
+}
+
+.temp-data-box{
+    box-shadow: 1px 1px 1px lightgrey;
+
+}
+
+.radio{
+    display: flex;
+    margin-left: 3%;
+}
+.radio input{
+    margin-left: 1%;
+}
+.radio label{
+    margin-left: 3%;
+}

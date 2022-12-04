@@ -1,0 +1,170 @@
+html {
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body{
+    margin:0;
+}
+iframe{
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    height: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+ul li{
+    list-style: square;
+    color: #141B22;
+    line-height: 1.5;
+}
+ol li{
+    color: #141B22;
+    line-height: 1.5;
+}
+
+.main-page {
+    background-color: maroon;
+}
+
+.wrapper{
+    transform: translate(-50%, -50%);
+    padding-top: 25px;
+
+}
+
+section {
+    width: border-box;
+    background-size: cover;
+    background-position: center;
+    -webkit-background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    padding: 40px 20px 0 0;
+    align-content: flex-start;
+}
+
+.image-content{
+    width: 250px;
+    height: 200px;
+    border-radius: 5px;
+    border: 5px solid #ffcc5c;
+}
+
+/*----------------------------------------------------------------------*/
+section div{
+    height: auto;
+    flex: 1; /* create responsibility of the web page */
+    margin: 10px 90px 50px 100px;
+    /*border : 1px solid black;*/
+}
+section div.one-third {
+    color: #b4ffff;
+    margin-left: 9%;
+}
+
+
+section h1{
+    width: 100%;
+    margin: 40px;
+    font-family: EclecticHebrewNo2, serif;
+    color: #78C557 ;
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;
+    font-size: xxx-large;
+
+}
+
+section p{
+    font-family: gvertetLevin , serif;
+    font-weight: 900;
+    letter-spacing:3px;
+    line-height: 1.9;
+    font-size: small;
+
+}
+
+section h2{
+    color: #78C557;
+    font-family: SN_udik, serif;
+    font-size: xx-large;
+    letter-spacing:3px;
+
+}
+
+
+@font-face {
+    font-family: Dana;
+    src: url("../font/DanaYadAlefAlefAlef-Normal.woff");
+
+}
+
+@font-face {
+    font-family: ganclm;
+    src: url("../font/ganclm_bold-webfont.woff");
+}
+
+@font-face {
+    font-family: nehama;
+    src: url("../font/nehama-webfont.ttf");
+}
+
+@font-face {
+    font-family: gvertetLevin;
+    src: url("../font/GveretLevinAlefAlefAlef-Regular.ttf");
+}
+
+@font-face {
+    font-family: girim_light;
+    src: url("../font/SN_girim_light.otf");
+}
+
+@font-face {
+    font-family: EclecticHebrewNo2;
+    src: url("../font/TelAviv-EclecticHebrewNo2.ttf");
+}
+
+@font-face {
+    font-family: SN_udik;
+    src: url("../font/SN_udik.otf");
+}
+
+.main-page {
+    background-color: maroon;
+}
+
+.ul {
+    list-style: none;
+    flex: 1; /* create responsibility of the web page */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    z-index:1;
+    width:100%;
+}
+
+
+.ul li {
+    float: right;
+    list-style: none;
+}
+
+.ul a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.ul a:hover {
+    background-color: #111;
+}

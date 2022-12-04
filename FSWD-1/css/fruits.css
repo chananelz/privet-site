@@ -1,0 +1,266 @@
+/*https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/*/
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body{
+    margin:0;
+}
+
+ul {
+    list-style-type: none;
+    flex: 1; /* create responsibility of the web page */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    z-index:1;
+    width:100%;
+}
+
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.main-page {
+    background-color: maroon;
+}
+
+.wrapper{
+    transform: translate(-50%, -50%);
+
+}
+
+.button{
+    display: block;
+    width: 200px;
+    height: 50px;
+    line-height: 40px;
+    font-size: 25px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #64a548;
+    border: 2px solid #111111;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+}
+
+.button span{
+    position: relative;
+    z-index: 1;
+}
+
+.button:after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: DarkBlue;
+    transition: all .35s;
+}
+
+.button:hover{
+    color: #fff;
+}
+
+.button:hover:after{
+    width: 100%;
+}
+
+/*----------------------------------------------------------------------*/
+
+header .header-content {
+    position: relative;
+    width: 100%;
+    min-height: 200px;
+    padding:  10px 10px 100px 10px;
+    text-align: center;
+}
+
+header {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../media/fruit_4.webp");
+    background-size: cover;
+    background-position: center;
+    -webkit-background-size: cover;
+}
+
+header h1{
+    font-family: nehama, serif;
+    font-size: 500%;
+    color: orangered;
+
+}
+
+header p{
+    font-family: ganclm, serif;
+    font-size: 200%;
+    color: sandybrown;
+
+}
+
+#bsad{
+    display: flex;
+    margin:  40px;
+    color: gold;
+    font-family: Dana, serif;
+}
+
+/*----------------------------------------------------------------------*/
+
+section {
+    width: border-box;
+    background-size: cover;
+    background-position: center;
+    -webkit-background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    padding: 40px 20px 0 0;
+    align-content: flex-start;
+}
+
+
+#tropical{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("../media/background-image_1.jpg");
+}
+
+#hadar{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("../media/fruit_6.webp");
+}
+
+#summer{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("../media/fruit_7.jpg");
+}
+
+#forest{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("../media/fruit_8.jpg");
+}
+
+#exotic{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("../media/fruit_9.jpg");
+}
+
+#vegetables{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("../media/fruit_10.jpg");
+}
+
+#cereals{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("../media/fruit_11.jpg");
+}
+
+.image-content{
+    width: 250px;
+    height: 200px;
+    border-radius: 5px;
+    border: 5px solid #ffcc5c;
+}
+
+/*----------------------------------------------------------------------*/
+section div{
+    height: auto;
+    flex: 1; /* create responsibility of the web page */
+    margin: 10px 90px 50px 100px;
+}
+section div.one-third {
+    color: #b4ffff;
+    margin-right: 5%;
+}
+
+section div.one-third-second {
+    color: #dfff99;
+    margin-right: 5%;
+}
+
+section div.one-third-last {
+    color: #fffa87;
+    margin-right: 5%;
+}
+
+section h1{
+    width: 100%;
+    margin: 40px;
+    font-family: EclecticHebrewNo2, serif;
+    color: #f0f981;
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;
+    font-size: xxx-large;
+
+}
+
+section p{
+    font-family: gvertetLevin , serif;
+    font-weight: 900;
+    letter-spacing:3px;
+    line-height: 1.9;
+    font-size: small;
+
+}
+
+section h2{
+    color: #e0ffb3;
+    font-family: SN_udik, serif;
+    font-size: xx-large;
+    letter-spacing:3px;
+
+}
+
+
+@font-face {
+    font-family: Dana;
+    src: url("../font/DanaYadAlefAlefAlef-Normal.woff");
+
+}
+
+@font-face {
+    font-family: ganclm;
+    src: url("../font/ganclm_bold-webfont.woff");
+}
+
+@font-face {
+    font-family: nehama;
+    src: url("../font/nehama-webfont.ttf");
+}
+
+@font-face {
+    font-family: gvertetLevin;
+    src: url("../font/GveretLevinAlefAlefAlef-Regular.ttf");
+}
+
+@font-face {
+    font-family: girim_light;
+    src: url("../font/SN_girim_light.otf");
+}
+
+@font-face {
+    font-family: EclecticHebrewNo2;
+    src: url("../font/TelAviv-EclecticHebrewNo2.ttf");
+}
+
+@font-face {
+    font-family: SN_udik;
+    src: url("../font/SN_udik.otf");
+}
+
