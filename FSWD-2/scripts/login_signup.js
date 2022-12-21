@@ -9,71 +9,91 @@ const mailField = document.getElementById("mail-field");
 const password = document.getElementById("password");
 const secondPassword = document.getElementById("second-password")
 
+let elements_arr = [username, mailField, password, secondPassword]
+
 // ------------------------------------------------
 
-singInBtn.onclick =function(){
-  mailField.style.maxHeight = "0";
-  secondPassword.style.maxHeight = "0";
-  mailField.style.visibility = "hidden";
-  secondPassword.style.visibility = "hidden";
-  title.innerHTML = "התחברות";
-  singUpBtn.classList.add("disable");
-  singInBtn.classList.remove("disable");
-  forgetPassword.style.display ="block";
+singInBtn.onclick = move_to_singInBtn;
+
+function move_to_singInBtn() {
+	mailField.style.maxHeight = "0";
+	secondPassword.style.maxHeight = "0";
+	mailField.style.visibility = "hidden";
+	secondPassword.style.visibility = "hidden";
+	title.innerHTML = "התחברות";
+	singUpBtn.classList.add("disable");
+	singInBtn.classList.remove("disable");
+	forgetPassword.style.display = "block";
+	elements_arr.forEach(clear_input);
 }
 
-singUpBtn.onclick =function(){
-  mailField.style.maxHeight = "60px";
-  secondPassword.style.maxHeight = "60px";
-  mailField.style.visibility = "visible";
-  secondPassword.style.visibility = "visible";
-  title.innerHTML = "הרשמה";
-  singUpBtn.classList.remove("disable");
-  singInBtn.classList.add("disable");
-  forgetPassword.style.display ="none";
+singUpBtn.onclick = move_to_singUpBtn;
 
+function move_to_singUpBtn() {
+	mailField.style.maxHeight = "60px";
+	secondPassword.style.maxHeight = "60px";
+	mailField.style.visibility = "visible";
+	secondPassword.style.visibility = "visible";
+	title.innerHTML = "הרשמה";
+	singUpBtn.classList.remove("disable");
+	singInBtn.classList.add("disable");
+	forgetPassword.style.display = "none";
+	elements_arr.forEach(clear_input);
 }
 // -------------------------------------------------
 
-btn.addEventListener("click",(e) => {
-  // The preventDefault() method cancels the event if it is cancelable, meaning that the default 
-  // action that belongs to the event will not occur.
-  e.preventDefault()
-  check_inputs();
+btn.addEventListener("click", (e) => {
+	// The preventDefault() method cancels the event if it is cancelable, meaning that the default 
+	// action that belongs to the event will not occur.
+	e.preventDefault()
+	check_inputs();
 });
 
 function check_inputs() {
-  const usernameValue = username.querySelector("input").value.trim();
-	const emailValue = mailField.querySelector("input").value.trim();
-	const passwordValue = password.querySelector("input").value.trim();
-	const password2Value = secondPassword.querySelector("input").value.trim();
-  
-  if(usernameValue === '') {
+	let count = 0;
+	let user_input ={
+		usernameValue : username.querySelector("input").value.trim(),
+		emailValue : mailField.querySelector("input").value.trim(),
+		passwordValue : password.querySelector("input").value.trim(),
+		password2Value : secondPassword.querySelector("input").value.trim()
+
+	}
+
+	if (user_input.usernameValue === '') {
 		setErrorFor(username, 'קלט ריק');
 	} else {
 		setSuccessFor(username);
+		count++
 	}
-	
-	if(emailValue === '') {
+
+	if (user_input.emailValue === '') {
 		setErrorFor(mailField, 'קלט ריק');
-	} else if (!isEmail(emailValue)) {
+	} else if (!isEmail(user_input.emailValue)) {
 		setErrorFor(mailField, 'קלט לא חוקי');
 	} else {
 		setSuccessFor(mailField);
+		count++;
 	}
-	
-	if(passwordValue === '') {
+
+	if (user_input.passwordValue === '') {
 		setErrorFor(password, 'קלט ריק');
 	} else {
 		setSuccessFor(password);
+		count++;
 	}
-	
-	if(password2Value === '') {
+
+	if (user_input.password2Value === '') {
 		setErrorFor(secondPassword, 'קלט ריק');
-	} else if(passwordValue !== password2Value) {
+	} else if (user_input.passwordValue !== user_input.password2Value) {
 		setErrorFor(secondPassword, "חוסר התאמה");
-	} else{
+	} else {
 		setSuccessFor(secondPassword);
+		count++;
+	}
+	if (count === 4) {
+		alert("נרשמת בהצלחה");
+		window.location.href = "../html/games.html";
+
 	}
 }
 
@@ -87,7 +107,12 @@ function setErrorFor(input, message) {
 function setSuccessFor(input) {
 	input.className = 'input-field success';
 }
-	
+
 function isEmail(email) {
 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
+function clear_input(item) {
+	item.className = 'input-field';
+	item.querySelector("input").value ="";
 }
