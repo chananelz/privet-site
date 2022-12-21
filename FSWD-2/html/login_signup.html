@@ -5,11 +5,72 @@
   <title>התחברות למערכת</title>
   <meta charset="utf-8" />
   <link href="../css/login.css" type="text/css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/5eb0bf5726.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <div class="container"></div>
+  <div class="container">
+    <div class="main-box">
+      <h1 id="title">הרשמה</h1>
+      <form>
+        <div class="input-group">
+          <div class="input-field" >
+            <i class="fa-solid fa-user-tie"></i>
+            <input type="text" placeholder="שם משתמש">
+          </div>
+
+          <div class="input-field" id="mail-field">
+            <i class="fa-solid fa-envelope" ></i>
+            <input type="email" placeholder="כתובת מייל">
+          </div>
+
+          <div class="input-field">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" placeholder="סיסמא">
+          </div>
+
+          <div class="input-field" id="second-password">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" placeholder="שוב סיסמא">
+          </div>
+
+          <p>שכחת את הסיסמא? <a href="#">לחץ כאן!</a></p>
+
+        </div>
+        <div class="btn">
+          <button type="button" id="singupbtn"> הרשמה</button>
+          <button type="button" id="singinbtn" class="disable">התחברות</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  
+  <script>
+    let singInBtn = document.getElementById("singinbtn");
+    let singUpBtn = document.getElementById("singupbtn");
+    let mailField = document.getElementById("mail-field");
+    let title = document.getElementById("title");
+    let secondPassword = document.getElementById("second-password")
+
+    singInBtn.onclick =function(){
+      mailField.style.maxHeight = "0";
+      secondPassword.style.maxHeight = "0";
+      title.innerHTML = "התחברות";
+      singUpBtn.classList.add("disable");
+      singInBtn.classList.remove("disable");
+    }
+
+    singUpBtn.onclick =function(){
+      mailField.style.maxHeight = "60px";
+      secondPassword.style.maxHeight = "60px";
+      title.innerHTML = "הרשמה";
+      singUpBtn.classList.remove("disable");
+      singInBtn.classList.add("disable");
+    }
+  </script>
+
 
 </body>
-
 </html>
+
