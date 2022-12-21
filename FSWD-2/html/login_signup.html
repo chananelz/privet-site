@@ -17,24 +17,38 @@
           <div class="input-field" >
             <i class="fa-solid fa-user-tie"></i>
             <input type="text" placeholder="שם משתמש">
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
           </div>
 
           <div class="input-field" id="mail-field">
             <i class="fa-solid fa-envelope" ></i>
             <input type="email" placeholder="כתובת מייל">
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
           </div>
 
           <div class="input-field">
             <i class="fa-solid fa-lock"></i>
             <input type="password" placeholder="סיסמא">
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
           </div>
 
           <div class="input-field" id="second-password">
             <i class="fa-solid fa-lock"></i>
             <input type="password" placeholder="שוב סיסמא">
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
           </div>
 
-          <p id="forget-password">שכחת את הסיסמא? <a href="#">לחץ כאן!</a></p>
+          <button type="button" id="continue-btn"><i class="fa-solid fa-circle-left"></i></button>
+
+          <p id="forget-password">שכחת את הסיסמא? <a href="../html/Building.html">לחץ כאן!</a></p>
 
         </div>
         <div class="btn">
@@ -46,35 +60,7 @@
     </div>
   </div>
   
-  <script>
-    let singInBtn = document.getElementById("singinbtn");
-    let singUpBtn = document.getElementById("singupbtn");
-    let mailField = document.getElementById("mail-field");
-    let title = document.getElementById("title");
-    let forgetPassword = document.getElementById("forget-password")
-    let secondPassword = document.getElementById("second-password")
-
-    singInBtn.onclick =function(){
-      mailField.style.maxHeight = "0";
-      secondPassword.style.maxHeight = "0";
-      title.innerHTML = "התחברות";
-      singUpBtn.classList.add("disable");
-      singInBtn.classList.remove("disable");
-      forgetPassword.style.display ="block";
-    }
-
-    singUpBtn.onclick =function(){
-      mailField.style.maxHeight = "60px";
-      secondPassword.style.maxHeight = "60px";
-      title.innerHTML = "הרשמה";
-      singUpBtn.classList.remove("disable");
-      singInBtn.classList.add("disable");
-      forgetPassword.style.display ="none";
-
-    }
-  </script>
-
-
+  <script src="../scripts/login_signup.js" type="text/javascript"></script>
 </body>
 </html>
 

@@ -25,6 +25,8 @@
     background: #fff;
     padding: 60px 60px 70px;
     text-align: center;
+    border-radius: 10px;
+
 }
 
 .main-box h1 {
@@ -48,6 +50,7 @@
 }
 
 .input-field {
+    border: 2px solid #f0f0f0;
     background: #eaeaea;
     margin: 15px 0;
     border-radius: 3px;
@@ -56,7 +59,33 @@
     max-height: 65px;
     transition: max-height 0.5s;
     overflow: hidden;
+    border-color: #e74c3c;
+
 }
+
+.input-field i {
+    margin-right: 15px;
+    color: #999;
+    left: 10px;
+}
+
+.input-field i:nth-child(4), i:nth-child(3){
+    visibility: hidden;
+
+}
+
+
+.input-field small{
+    visibility: hidden;
+
+}
+
+/* .input-field  {
+	border-color: #2ecc71;
+} */
+
+/* .input-field.error input {
+} */
 
 #second-password{
     max-height: 65px;
@@ -72,10 +101,7 @@ input {
     padding: 18px 15px;
 }
 
-.input-field i {
-    margin-left: 15px;
-    color: #999;
-}
+
 
 form p a {
     text-decoration: none;
@@ -98,6 +124,7 @@ form p a {
     border: 0;
     cursor: pointer;
     transition: background 1s;
+    margin-top: 20px;
 }
 
 .input-group {
@@ -113,9 +140,19 @@ form p a {
     display: none;
 }
 
-
-
-
+#continue-btn{
+    flex-basis: 48%;
+    background: #3c00a0;
+    color: #fff;
+    height: 10%;
+    width: 8%;
+    border-radius: 20px;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border: 2px solid #555;
+}
 
 /* ------------------------------------ */
 
