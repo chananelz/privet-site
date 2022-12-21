@@ -59,35 +59,54 @@
     max-height: 65px;
     transition: max-height 0.5s;
     overflow: hidden;
-    border-color: #e74c3c;
 
 }
 
 .input-field i {
+    margin-left: 15px;
     margin-right: 15px;
     color: #999;
     left: 10px;
 }
 
-.input-field i:nth-child(4), i:nth-child(3){
-    visibility: hidden;
+.input-field i:nth-child(4),
+i:nth-child(3) {
+    display: none;
 
 }
 
 
-.input-field small{
-    visibility: hidden;
+.input-field small {
+    display: none;
 
 }
 
-/* .input-field  {
-	border-color: #2ecc71;
-} */
+.input-field.success {
+    border-color: #2ecc71;
+}
 
-/* .input-field.error input {
-} */
+.input-field.success i.fa-check-circle{
+    display: inline;
+    color: #2ecc71;
+}
 
-#second-password{
+.input-field.input-field.error i.fa-exclamation-circle{
+    color: #e74c3c;
+    display: inline;
+
+}
+
+.input-field.error small{
+    color: #e74c3c;
+    display: inline;
+}
+
+.input-field.error {
+    border-color: #e74c3c;
+}
+
+
+#second-password {
     max-height: 65px;
     transition: max-height 0.5s;
     overflow: hidden;
@@ -131,16 +150,16 @@ form p a {
     height: 280px;
 }
 
-.btn button.disable{
+.btn button.disable {
     background: #eaeaea;
     color: #555;
 }
 
-#forget-password{
+#forget-password {
     display: none;
 }
 
-#continue-btn{
+#continue-btn {
     flex-basis: 48%;
     background: #3c00a0;
     color: #fff;

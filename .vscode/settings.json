@@ -1,11 +1,5 @@
 {
     "cSpell.language": "en,he",
-    "grammarly.selectors": [
-        {
-            "language": "html",
-            "scheme": "file"
-        }
-    ],
     "cSpell.words": [
         "להרשמה",
         "להתחברות"
