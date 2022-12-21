@@ -1,4 +1,5 @@
-const btn = document.getElementById("continue-btn");
+const continue_btn = document.getElementById("continue-btn");
+const login_btn = document.getElementById("login-btn");
 const singInBtn = document.getElementById("singinbtn");
 const singUpBtn = document.getElementById("singupbtn");
 const title = document.getElementById("title");
@@ -23,6 +24,8 @@ function move_to_singInBtn() {
 	title.innerHTML = "התחברות";
 	singUpBtn.classList.add("disable");
 	singInBtn.classList.remove("disable");
+	continue_btn.classList.add("hide");
+	login_btn.classList.remove("hide");
 	forgetPassword.style.display = "block";
 	elements_arr.forEach(clear_input);
 }
@@ -37,25 +40,35 @@ function move_to_singUpBtn() {
 	title.innerHTML = "הרשמה";
 	singUpBtn.classList.remove("disable");
 	singInBtn.classList.add("disable");
+	login_btn.classList.add("hide");
+	continue_btn.classList.remove("hide");
 	forgetPassword.style.display = "none";
 	elements_arr.forEach(clear_input);
 }
 // -------------------------------------------------
 
-btn.addEventListener("click", (e) => {
+continue_btn.addEventListener("click", (e) => {
 	// The preventDefault() method cancels the event if it is cancelable, meaning that the default 
 	// action that belongs to the event will not occur.
 	e.preventDefault()
 	check_inputs();
 });
 
+
+login_btn.addEventListener("click", (e) => {
+	// The preventDefault() method cancels the event if it is cancelable, meaning that the default
+	// action that belongs to the event will not occur.
+	e.preventDefault()
+	validate_inputs();
+});
+
 function check_inputs() {
 	let count = 0;
-	let user_input ={
-		usernameValue : username.querySelector("input").value.trim(),
-		emailValue : mailField.querySelector("input").value.trim(),
-		passwordValue : password.querySelector("input").value.trim(),
-		password2Value : secondPassword.querySelector("input").value.trim()
+	let user_input = {
+		usernameValue: username.querySelector("input").value.trim(),
+		emailValue: mailField.querySelector("input").value.trim(),
+		passwordValue: password.querySelector("input").value.trim(),
+		password2Value: secondPassword.querySelector("input").value.trim()
 
 	}
 
@@ -92,9 +105,15 @@ function check_inputs() {
 	}
 	if (count === 4) {
 		alert("נרשמת בהצלחה");
-		window.location.href = "../html/games.html";
+		move_to_singInBtn();
 
 	}
+}
+
+function validate_inputs() {
+	alert("התחברת בהצלחה");
+	window.location.href = "../html/games.html";
+
 }
 
 
@@ -114,5 +133,5 @@ function isEmail(email) {
 
 function clear_input(item) {
 	item.className = 'input-field';
-	item.querySelector("input").value ="";
+	item.querySelector("input").value = "";
 }
