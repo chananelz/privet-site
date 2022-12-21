@@ -109,6 +109,10 @@ form p a {
     color: #555;
 }
 
+#forget-password{
+    display: none;
+}
+
 
 
 
