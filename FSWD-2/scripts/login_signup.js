@@ -12,6 +12,8 @@ const secondPassword = document.getElementById("second-password")
 
 let elements_arr = [username, mailField, password, secondPassword]
 
+let localData;
+
 // ------------------------------------------------
 
 singInBtn.onclick = move_to_singInBtn;
@@ -104,13 +106,6 @@ function check_inputs() {
 	}
 }
 
-function validate_inputs() {
-	alert("התחברת בהצלחה");
-	window.location.href = "../html/games.html";
-
-}
-
-
 function setErrorFor(input, message) {
 	const small = input.querySelector('small');
 	input.className = 'input-field error';
@@ -140,3 +135,25 @@ login_btn.addEventListener("click", (e) => {
 	e.preventDefault()
 	validate_inputs();
 });
+
+function validate_inputs() {
+	let usernameValue = username.querySelector("input").value.trim()
+	let passwordValue = password.querySelector("input").value.trim()
+
+	if (localStorage.getItem(usernameValue) === null) {
+		setErrorFor(username, 'שם לא קיים');
+	} else {
+		localData = JSON.parse(localStorage.getItem(usernameValue))
+		if (localData.usernameValue === usernameValue && localData.passwordValue === passwordValue){
+			alert("התחברת בהצלחה");
+			window.location.href = "../html/games.html";
+		} else {
+			setErrorFor(password, 'קוד שגוי');
+		}
+
+	}
+
+
+
+
+}
