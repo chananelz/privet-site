@@ -63,7 +63,11 @@ function check_inputs() {
 		usernameValue: username.querySelector("input").value.trim(),
 		emailValue: mailField.querySelector("input").value.trim(),
 		passwordValue: password.querySelector("input").value.trim(),
-		password2Value: secondPassword.querySelector("input").value.trim()
+		password2Value: secondPassword.querySelector("input").value.trim(),
+		AttemptsToConnect : 0,
+		score : 0,
+		connectingNumber : 0,
+		lastTimeToConnect : 0
 	}
 
 	if (user_input.usernameValue === '') {
