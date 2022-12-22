@@ -55,13 +55,6 @@ continue_btn.addEventListener("click", (e) => {
 });
 
 
-login_btn.addEventListener("click", (e) => {
-	// The preventDefault() method cancels the event if it is cancelable, meaning that the default
-	// action that belongs to the event will not occur.
-	e.preventDefault()
-	validate_inputs();
-});
-
 function check_inputs() {
 	let count = 0;
 	let user_input = {
@@ -69,12 +62,13 @@ function check_inputs() {
 		emailValue: mailField.querySelector("input").value.trim(),
 		passwordValue: password.querySelector("input").value.trim(),
 		password2Value: secondPassword.querySelector("input").value.trim()
-
 	}
 
 	if (user_input.usernameValue === '') {
 		setErrorFor(username, 'קלט ריק');
-	} else {
+	} else if (localStorage.getItem(user_input.usernameValue) !== null){
+		setErrorFor(username, 'שם קיים');
+	}else {
 		setSuccessFor(username);
 		count++
 	}
@@ -105,8 +99,8 @@ function check_inputs() {
 	}
 	if (count === 4) {
 		alert("נרשמת בהצלחה");
+		localStorage.setItem(user_input.usernameValue,JSON.stringify(user_input))
 		move_to_singInBtn();
-
 	}
 }
 
@@ -135,3 +129,14 @@ function clear_input(item) {
 	item.className = 'input-field';
 	item.querySelector("input").value = "";
 }
+
+//--------------------------------------------------------------------------------------------------
+
+
+
+login_btn.addEventListener("click", (e) => {
+	// The preventDefault() method cancels the event if it is cancelable, meaning that the default
+	// action that belongs to the event will not occur.
+	e.preventDefault()
+	validate_inputs();
+});
