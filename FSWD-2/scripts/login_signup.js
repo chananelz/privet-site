@@ -150,14 +150,10 @@ function validate_inputs() {
 		localData = JSON.parse(localStorage.getItem(usernameValue))
 		if (localData.usernameValue === usernameValue && localData.passwordValue === passwordValue){
 			alert("התחברת בהצלחה");
-			window.location.href = "../html/games.html";
+			window.location.href = "../html/all_games.html";
 		} else {
 			setErrorFor(password, 'קוד שגוי');
 		}
 
 	}
-
-
-
-
 }
