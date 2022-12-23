@@ -14,45 +14,10 @@ let elements_arr = [username, mailField, password, secondPassword]
 
 let localData;
 
-// ------------------------------------------------
-
-singInBtn.onclick = move_to_singInBtn;
-
-function move_to_singInBtn() {
-	mailField.style.maxHeight = "0";
-	secondPassword.style.maxHeight = "0";
-	mailField.style.visibility = "hidden";
-	secondPassword.style.visibility = "hidden";
-	title.innerHTML = "התחברות";
-	singUpBtn.classList.add("disable");
-	singInBtn.classList.remove("disable");
-	continue_btn.classList.add("hide");
-	login_btn.classList.remove("hide");
-	forgetPassword.style.display = "block";
-	elements_arr.forEach(clear_input);
-}
-
-singUpBtn.onclick = move_to_singUpBtn;
-
-function move_to_singUpBtn() {
-	mailField.style.maxHeight = "60px";
-	secondPassword.style.maxHeight = "60px";
-	mailField.style.visibility = "visible";
-	secondPassword.style.visibility = "visible";
-	title.innerHTML = "הרשמה";
-	singUpBtn.classList.remove("disable");
-	singInBtn.classList.add("disable");
-	login_btn.classList.add("hide");
-	continue_btn.classList.remove("hide");
-	forgetPassword.style.display = "none";
-	elements_arr.forEach(clear_input);
-}
-// -------------------------------------------------
-
 continue_btn.addEventListener("click", (e) => {
 	// The preventDefault() method cancels the event if it is cancelable, meaning that the default 
 	// action that belongs to the event will not occur.
-	e.preventDefault()
+	e.preventDefault();
 	check_inputs();
 });
 
@@ -157,3 +122,38 @@ function validate_inputs() {
 
 	}
 }
+
+// ------------------------------------------------
+
+singInBtn.onclick = move_to_singInBtn;
+
+function move_to_singInBtn() {
+	mailField.style.maxHeight = "0";
+	secondPassword.style.maxHeight = "0";
+	mailField.style.visibility = "hidden";
+	secondPassword.style.visibility = "hidden";
+	title.innerHTML = "התחברות";
+	singUpBtn.classList.add("disable");
+	singInBtn.classList.remove("disable");
+	continue_btn.classList.add("hide");
+	login_btn.classList.remove("hide");
+	forgetPassword.style.display = "block";
+	elements_arr.forEach(clear_input);
+}
+
+singUpBtn.onclick = move_to_singUpBtn;
+
+function move_to_singUpBtn() {
+	mailField.style.maxHeight = "60px";
+	secondPassword.style.maxHeight = "60px";
+	mailField.style.visibility = "visible";
+	secondPassword.style.visibility = "visible";
+	title.innerHTML = "הרשמה";
+	singUpBtn.classList.remove("disable");
+	singInBtn.classList.add("disable");
+	login_btn.classList.add("hide");
+	continue_btn.classList.remove("hide");
+	forgetPassword.style.display = "none";
+	elements_arr.forEach(clear_input);
+}
+// -------------------------------------------------
