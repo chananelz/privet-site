@@ -7,6 +7,7 @@ const quiz_box = document.querySelector(".quiz_box");
 const timeCount = quiz_box.querySelector(".timer .timer_sec");
 const option_list = document.querySelector(".option_list");
 const timeLine = quiz_box.querySelector("header .time_line");
+const timeOff = quiz_box.querySelector("header .time_text");
 
 
 start_btn.addEventListener("click", () => {
@@ -27,11 +28,16 @@ continue_btn.addEventListener("click", () => {
 });
 
 const next_btn = document.querySelector(".next_btn");
+const result_box = document.querySelector(".result_box");
+const restart_quiz = result_box.querySelector(".buttons .restart");
+const quit_quiz = result_box.querySelector(".buttons .quit");
+
 let que_count = 0;
 let counter;
 let counterLine;
 let timeValue = 15;
 let widthValue = 0;
+let userScore = 0;
 
 next_btn.addEventListener("click", () => {
 	if (que_count < question.length - 1) {
@@ -42,9 +48,16 @@ next_btn.addEventListener("click", () => {
 		startTimer(timeValue);
 		clearInterval(counterLine);
 		startTimerLine(widthValue);
+		// @ts-ignore
 		next_btn.style.display = "none";
+		timeOff.textContent = "הזמן שנותר";
+
 	} else {
+		clearInterval(counter);
+		clearInterval(counterLine);
+		startTimerLine(widthValue);
 		console.log("Question completed");
+		showResultBox();
 	}
 });
 
@@ -82,6 +95,7 @@ function optionSelected(answer) {
 	let allOptions = option_list.children.length;
 
 	if (userAns == correctAns) {
+		userScore++;
 		answer.classList.add("correct");
 		answer.insertAdjacentHTML("beforeend", tickIcon);
 	} else {
@@ -99,6 +113,7 @@ function optionSelected(answer) {
 	for (let i = 0; i < allOptions; i++) {
 		option_list.children[i].classList.add("disabled");
 	}
+	// @ts-ignore
 	next_btn.style.display = "block";
 }
 
@@ -114,14 +129,50 @@ function startTimer(time) {
 		if (time < 0) {
 			clearInterval(counter);
 			timeCount.textContent = "00";
+			timeOff.textContent = "הזמן נגמר";
+
+			let correctAns = question[que_count].answer;
+			let allOptions = option_list.children.length;
+
+			for (let i = 0; i < allOptions; i++) {
+				if (option_list.children[i].textContent == correctAns) {
+					option_list.children[i].setAttribute("class", "option correct");
+					option_list.children[i].insertAdjacentHTML("beforeend", tickIcon);
+				}
+			}
+			for (let i = 0; i < allOptions; i++) {
+				option_list.children[i].classList.add("disabled");
+			}
+			next_btn.style.display = "block";
+
 		}
 	}
 }
+
+function showResultBox() {
+	info_box.classList.remove("activeInfo");
+	quiz_box.classList.remove("activeQuiz");
+	result_box.classList.add("activeResult");
+	const scoreText = result_box.querySelector(".score_text");
+	if (userScore > 3) {
+		let scoreTag = '<span> כל הכבוד! צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
+		scoreText.innerHTML = scoreTag;
+	}else if(userScore > 1){
+		let scoreTag = '<span> נחמד! צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
+		scoreText.innerHTML = scoreTag;
+	}else{
+		let scoreTag = '<span>  צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
+		scoreText.innerHTML = scoreTag;
+	}
+
+}
+
 
 function startTimerLine(time) {
 	counterLine = setInterval(timer, 29);
 	function timer() {
 		time++;
+		// @ts-ignore
 		timeLine.style.width = time + "px";
 		if (time > 549) {
 			clearInterval(counterLine);
@@ -129,3 +180,23 @@ function startTimerLine(time) {
 	}
 }
 
+quit_quiz.addEventListener("click", () => {
+	window.location.reload();
+});
+
+restart_quiz.addEventListener("click", () => {
+	quiz_box.classList.add("activeQuiz");
+	result_box.classList.remove("activeResult");
+	let que_count = 0;
+	let que_numb = 1;
+	let counterLine;
+	let timeValue = 15;
+	let widthValue = 0;
+	let userScore = 0;
+	showQuestions();
+	queCounter();
+	startTimer(timeValue);
+	startTimerLine(widthValue);
+	next_btn.style.display = "none";
+	timeOff.textContent = "הזמן שנותר";
+});
