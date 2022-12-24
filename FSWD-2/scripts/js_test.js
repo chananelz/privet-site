@@ -40,6 +40,7 @@ let widthValue = 0;
 let userScore = 0;
 
 next_btn.addEventListener("click", () => {
+
 	if (que_count < question.length - 1) {
 		que_count++;
 		showQuestions();
@@ -94,7 +95,7 @@ function optionSelected(answer) {
 	let correctAns = question[que_count].answer;
 	let allOptions = option_list.children.length;
 
-	if (userAns == correctAns) {
+	if (userAns === correctAns) {
 		userScore++;
 		answer.classList.add("correct");
 		answer.insertAdjacentHTML("beforeend", tickIcon);
@@ -103,7 +104,7 @@ function optionSelected(answer) {
 		answer.insertAdjacentHTML("beforeend", crossIcon);
 
 		for (let i = 0; i < allOptions; i++) {
-			if (option_list.children[i].textContent == correctAns) {
+			if (option_list.children[i].textContent === correctAns) {
 				option_list.children[i].setAttribute("class", "option correct");
 				option_list.children[i].insertAdjacentHTML("beforeend", tickIcon);
 			}
@@ -135,7 +136,7 @@ function startTimer(time) {
 			let allOptions = option_list.children.length;
 
 			for (let i = 0; i < allOptions; i++) {
-				if (option_list.children[i].textContent == correctAns) {
+				if (option_list.children[i].textContent === correctAns) {
 					option_list.children[i].setAttribute("class", "option correct");
 					option_list.children[i].insertAdjacentHTML("beforeend", tickIcon);
 				}
@@ -155,14 +156,11 @@ function showResultBox() {
 	result_box.classList.add("activeResult");
 	const scoreText = result_box.querySelector(".score_text");
 	if (userScore > 3) {
-		let scoreTag = '<span> כל הכבוד! צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
-		scoreText.innerHTML = scoreTag;
+		scoreText.innerHTML = '<span> כל הכבוד! צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
 	}else if(userScore > 1){
-		let scoreTag = '<span> נחמד! צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
-		scoreText.innerHTML = scoreTag;
+		scoreText.innerHTML = '<span> נחמד! צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
 	}else{
-		let scoreTag = '<span>  צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
-		scoreText.innerHTML = scoreTag;
+		scoreText.innerHTML = '<span>  צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
 	}
 
 }
