@@ -9,6 +9,27 @@ const option_list = document.querySelector(".option_list");
 const timeLine = quiz_box.querySelector("header .time_line");
 const timeOff = quiz_box.querySelector("header .time_text");
 
+const allUsers = findAllUsers();
+const currentUser = findCurrentUser(); 
+
+
+function findAllUsers(){
+	let allUsers = [];
+
+	for (let i = 0; i < localStorage.length; i++) {
+		let key = localStorage.key(i);
+		let value = localStorage.getItem(key);
+		allUsers.push(JSON.parse(value));
+	}
+	return allUsers;
+}
+
+function findCurrentUser(){
+	return allUsers.sort(function(a, b) {
+		return b.lastTimeToConnect - a.lastTimeToConnect;
+	})[0];
+}
+
 
 start_btn.addEventListener("click", () => {
 	info_box.classList.add("activeInfo");
@@ -155,12 +176,14 @@ function showResultBox() {
 	quiz_box.classList.remove("activeQuiz");
 	result_box.classList.add("activeResult");
 	const scoreText = result_box.querySelector(".score_text");
-	if (userScore > 3) {
-		scoreText.innerHTML = '<span> כל הכבוד! צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
+	if (userScore > 3) {		
+		scoreText.innerHTML = '<span> כל הכבוד '  + currentUser.usernameValue + '<p>' ;
+		scoreText.innerHTML += '<span> צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
+
 	}else if(userScore > 1){
-		scoreText.innerHTML = '<span> נחמד! צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
+		scoreText.innerHTML = '<span> צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
 	}else{
-		scoreText.innerHTML = '<span>  צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
+		scoreText.innerHTML = '<span> צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
 	}
 
 }

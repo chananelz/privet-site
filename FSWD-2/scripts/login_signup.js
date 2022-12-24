@@ -1,3 +1,4 @@
+// @ts-ignore
 const continue_btn = document.getElementById("continue-btn");
 const login_btn = document.getElementById("login-btn");
 const singInBtn = document.getElementById("singinbtn");
@@ -10,9 +11,10 @@ const mailField = document.getElementById("mail-field");
 const password = document.getElementById("password");
 const secondPassword = document.getElementById("second-password")
 
+
 let elements_arr = [username, mailField, password, secondPassword]
 
-let localData;
+let userData;
 
 continue_btn.addEventListener("click", (e) => {
 	// The preventDefault() method cancels the event if it is cancelable, meaning that the default 
@@ -30,7 +32,7 @@ function check_inputs() {
 		passwordValue: password.querySelector("input").value.trim(),
 		password2Value: secondPassword.querySelector("input").value.trim(),
 		AttemptsToConnect : 0,
-		score : 0,
+		total_score : 0,
 		connectingNumber : 0,
 		lastTimeToConnect : 0
 	}
@@ -70,7 +72,7 @@ function check_inputs() {
 	}
 	if (count === 4) {
 		alert("נרשמת בהצלחה");
-		localStorage.setItem(user_input.usernameValue,JSON.stringify(user_input))
+		localStorage.setItem(user_input.usernameValue,JSON.stringify(user_input));
 		move_to_singInBtn();
 	}
 }
@@ -108,16 +110,32 @@ login_btn.addEventListener("click", (e) => {
 function validate_inputs() {
 	let usernameValue = username.querySelector("input").value.trim()
 	let passwordValue = password.querySelector("input").value.trim()
+	elements_arr.forEach(clear_input);
 
 	if (localStorage.getItem(usernameValue) === null) {
 		setErrorFor(username, 'שם לא קיים');
+		
 	} else {
-		localData = JSON.parse(localStorage.getItem(usernameValue))
-		if (localData.usernameValue === usernameValue && localData.passwordValue === passwordValue){
-			alert("התחברת בהצלחה");
+		userData = JSON.parse(localStorage.getItem(usernameValue))
+		if (userData.AttemptsToConnect === 3) {
+			alert(" עברת את מספר הניסיונות המותרים חשבונך נחסם, פתח חשבון חדש");
+			localStorage.removeItem(usernameValue);
+			return;
+		}
+		if (userData.usernameValue === usernameValue && userData.passwordValue === passwordValue){
+			if(userData.connectingNumber === 0){
+				alert("התחברת בהצלחה");
+			}else{
+				alert("התחברת בהצלחה התחברות אחרונה בתאריך " + userData.lastTimeToConnect );
+			}
+			userData.connectingNumber++;
+			userData.lastTimeToConnect = new Date().toLocaleString();
+			localStorage.setItem(userData.usernameValue,JSON.stringify(userData));
 			window.location.href = "../html/all_games.html";
 		} else {
 			setErrorFor(password, 'קוד שגוי');
+			userData.AttemptsToConnect++;
+			localStorage.setItem(userData.usernameValue,JSON.stringify(userData));
 		}
 
 	}
