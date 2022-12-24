@@ -10,10 +10,10 @@ const timeLine = quiz_box.querySelector("header .time_line");
 const timeOff = quiz_box.querySelector("header .time_text");
 
 const allUsers = findAllUsers();
-const currentUser = findCurrentUser(); 
+const currentUser = findCurrentUser();
 
 
-function findAllUsers(){
+function findAllUsers() {
 	let allUsers = [];
 
 	for (let i = 0; i < localStorage.length; i++) {
@@ -24,10 +24,10 @@ function findAllUsers(){
 	return allUsers;
 }
 
-function findCurrentUser(){
-	return allUsers.sort(function(a, b) {
+function findCurrentUser() {
+	return allUsers.sort(function (a, b) {
 		return b.lastTimeToConnect - a.lastTimeToConnect;
-	})[0];
+	})[allUsers.length - 1];
 }
 
 
@@ -176,15 +176,26 @@ function showResultBox() {
 	quiz_box.classList.remove("activeQuiz");
 	result_box.classList.add("activeResult");
 	const scoreText = result_box.querySelector(".score_text");
-	if (userScore > 3) {		
-		scoreText.innerHTML = '<span> כל הכבוד '  + currentUser.usernameValue + '<p>' ;
+	if (userScore > 3) {
+		scoreText.innerHTML = '<span> שאפו ענק ' + currentUser.usernameValue + '<p>';
 		scoreText.innerHTML += '<span> צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
-
-	}else if(userScore > 1){
-		scoreText.innerHTML = '<span> צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
-	}else{
+	} else if (userScore > 1) {
+		scoreText.innerHTML = '<span> כל הכבוד ' + currentUser.usernameValue + '<p>';
+		scoreText.innerHTML += '<span> צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
+	} else {
 		scoreText.innerHTML = '<span> צברת במשחק זה <p>' + userScore + '</p> נקודות מתוך <p>' + question.length + '</p></span>';
 	}
+	currentUser.total_score += userScore;
+	scoreText.innerHTML += '<span> ניקוד מצטבר ' + currentUser.total_score + '<p>';
+	localStorage.setItem(currentUser.usernameValue, JSON.stringify(currentUser));
+
+	scoreText.innerHTML += '----------שלוש המשתמשים הטובים ביותר----------';
+	let users = findAllUsers();
+	users.sort((a, b) => b.total_score - a.total_score);
+	for (let i = 0; i < 3; i++) {
+		scoreText.innerHTML += '<span>' + (i + 1) + '. משתמש ' + users[i].usernameValue + ' - סה"כ ניקוד ' + users[i].total_score + '</span>';
+	}
+
 
 }
 
@@ -208,16 +219,19 @@ quit_quiz.addEventListener("click", () => {
 restart_quiz.addEventListener("click", () => {
 	quiz_box.classList.add("activeQuiz");
 	result_box.classList.remove("activeResult");
-	let que_count = 0;
-	let que_numb = 1;
-	let counterLine;
-	let timeValue = 15;
-	let widthValue = 0;
-	let userScore = 0;
+	que_count = 0;
+	counterLine;
+	timeValue = 15;
+	widthValue = 0;
+	userScore = 0;
 	showQuestions();
 	queCounter();
+	clearInterval(counter);
 	startTimer(timeValue);
+	clearInterval(counterLine);
 	startTimerLine(widthValue);
 	next_btn.style.display = "none";
 	timeOff.textContent = "הזמן שנותר";
 });
+
+// 
