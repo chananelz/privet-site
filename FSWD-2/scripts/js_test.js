@@ -1,3 +1,11 @@
+/**
+ * @file: js_test.js
+ * @fileoverview: This file contains the code for the quiz page.
+ * @author : Chananel Zaguri
+ * 
+ * 
+ */
+
 const start_btn = document.getElementById("111");
 const info_box = document.querySelector(".info_box");
 const exit_btn = info_box.querySelector(".buttons .quit");
@@ -12,7 +20,10 @@ const timeOff = quiz_box.querySelector("header .time_text");
 const allUsers = findAllUsers();
 const currentUser = findCurrentUser();
 
-
+/**
+ * this function is responsible for bringing the user from the local storage
+ * @returns array of all users
+ */
 function findAllUsers() {
 	let allUsers = [];
 
@@ -24,21 +35,37 @@ function findAllUsers() {
 	return allUsers;
 }
 
+
+
+
+/**
+ * this function is responsible for finding the current user
+ * @returns json of the current user
+ */
 function findCurrentUser() {
 	return allUsers.sort(function (a, b) {
-		return b.lastTimeToConnect - a.lastTimeToConnect;
-	})[allUsers.length - 1];
+		console.log(`${b.usernameValue} +++++ ${a.usernameValue}. ---- ${Date.parse(b['lastTimeToConnect']) - Date.parse(a['lastTimeToConnect'])} !!!!`);
+		return Date.parse(b['lastTimeToConnect']) - Date.parse(a['lastTimeToConnect']);
+	})[0];
 }
 
-
+/**
+ * this event is responsible for the start the quiz guideline 
+ */
 start_btn.addEventListener("click", () => {
 	info_box.classList.add("activeInfo");
 });
 
+/**
+ * this event is responsible for the exit the quiz
+ */
 exit_btn.addEventListener("click", () => {
 	info_box.classList.remove("activeInfo");
 });
 
+/**
+ * this event is responsible for the continue to next question
+ */
 continue_btn.addEventListener("click", () => {
 	info_box.classList.remove("activeInfo");
 	quiz_box.classList.add("activeQuiz");
@@ -60,8 +87,10 @@ let timeValue = 15;
 let widthValue = 0;
 let userScore = 0;
 
+/**
+ * this event is responsible for continue to next question
+ */
 next_btn.addEventListener("click", () => {
-
 	if (que_count < question.length - 1) {
 		que_count++;
 		showQuestions();
@@ -84,12 +113,18 @@ next_btn.addEventListener("click", () => {
 });
 
 
+/**
+ * 
+ */
 function queCounter() {
 	const bottom_ques_counter = quiz_box.querySelector(".total_que");
 	let totalQuestion = '<span><p>' + (que_count + 1) + '</p>מיתוך<p>' + question.length + '</p>שאלות</span>';
 	bottom_ques_counter.innerHTML = totalQuestion;
 }
 
+/**
+ * this function is responsible for show the questions
+ */
 function showQuestions() {
 	const que_text = document.querySelector(".que_text");
 	let que_tag = '<span>' + question[que_count].numb + ". " + question[que_count].question + '</span>';
@@ -109,6 +144,11 @@ function showQuestions() {
 let tickIcon = '<div class="icon tick"><i class="fas fa-check"></i></div>';
 let crossIcon = '<div class="icon cross	"><i class="fas fa-times"></i></div>';
 
+
+/**
+ * this function is responsible handle the situation when the user select an option
+ * @param {*} answer 
+ */
 function optionSelected(answer) {
 	clearInterval(counter);
 	clearInterval(counterLine);
@@ -139,8 +179,18 @@ function optionSelected(answer) {
 	next_btn.style.display = "block";
 }
 
+/**
+ * the outer function is responsible for the start the timer
+ * the inner function is responsible for the timer itself
+ * 
+ * @param {*} time 
+ */
 function startTimer(time) {
 	counter = setInterval(timer, 1000);
+	/**
+	 * this function is responsible for the timer 
+	 * and deal with the situation when the time is over
+	 */
 	function timer() {
 		timeCount.textContent = time;
 		time--;
@@ -169,8 +219,12 @@ function startTimer(time) {
 
 		}
 	}
+
 }
 
+/**
+ * this function is responsible for the result box that appear when the user finish the game
+ */
 function showResultBox() {
 	info_box.classList.remove("activeInfo");
 	quiz_box.classList.remove("activeQuiz");
@@ -199,9 +253,17 @@ function showResultBox() {
 
 }
 
-
+/**
+ * this function is responsible for the timer line
+ * the inner function is responsible for the timer itself
+ * @param {*} time 
+ */
 function startTimerLine(time) {
 	counterLine = setInterval(timer, 29);
+	/**
+	 * this function is responsible for the timer
+	 * every 29 milliseconds the timeLine width will increase by 1 px 
+	 */
 	function timer() {
 		time++;
 		// @ts-ignore
@@ -212,10 +274,16 @@ function startTimerLine(time) {
 	}
 }
 
+/**
+ * this event is responsible for the end the quiz
+ */
 quit_quiz.addEventListener("click", () => {
 	window.location.reload();
 });
 
+/**
+ * this event is responsible for the restart the quiz
+ */
 restart_quiz.addEventListener("click", () => {
 	quiz_box.classList.add("activeQuiz");
 	result_box.classList.remove("activeResult");
@@ -234,4 +302,3 @@ restart_quiz.addEventListener("click", () => {
 	timeOff.textContent = "הזמן שנותר";
 });
 
-// 

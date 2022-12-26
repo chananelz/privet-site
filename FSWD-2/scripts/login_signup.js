@@ -1,3 +1,9 @@
+/**
+ * @file: login_signup.js
+ * @author: Chananel Zaguri 
+ * @fileoverview: This file contains the code for the login and signup pages.
+ */
+
 // @ts-ignore
 const continue_btn = document.getElementById("continue-btn");
 const login_btn = document.getElementById("login-btn");
@@ -16,6 +22,9 @@ let elements_arr = [username, mailField, password, secondPassword]
 
 let userData;
 
+/**
+ * check the input of the user when he click on the continue button
+ */
 continue_btn.addEventListener("click", (e) => {
 	// The preventDefault() method cancels the event if it is cancelable, meaning that the default 
 	// action that belongs to the event will not occur.
@@ -24,6 +33,9 @@ continue_btn.addEventListener("click", (e) => {
 });
 
 
+/**
+ * check all the inputs of the user before creating a new account
+ */
 function check_inputs() {
 	let count = 0;
 	let user_input = {
@@ -77,20 +89,38 @@ function check_inputs() {
 	}
 }
 
+/**
+ * change the page if the input is incorrect 
+ * @param {*} input 
+ * @param {string} message 
+ */
 function setErrorFor(input, message) {
 	const small = input.querySelector('small');
 	input.className = 'input-field error';
 	small.innerText = message;
 }
 
+/**
+ * change the page if the input is correct
+ * @param {*} input 
+ */
 function setSuccessFor(input) {
 	input.className = 'input-field success';
 }
 
+/**
+ * check if the email is valid
+ * @param {*} email 
+ * @returns 
+ */
 function isEmail(email) {
 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
 
+/**
+ * erase the input of the user 
+ * @param {*} item 
+ */
 function clear_input(item) {
 	item.className = 'input-field';
 	item.querySelector("input").value = "";
@@ -99,7 +129,9 @@ function clear_input(item) {
 //--------------------------------------------------------------------------------------------------
 
 
-
+/**
+ * check the input of the user when he click on the login button 
+ */
 login_btn.addEventListener("click", (e) => {
 	// The preventDefault() method cancels the event if it is cancelable, meaning that the default
 	// action that belongs to the event will not occur.
@@ -107,6 +139,10 @@ login_btn.addEventListener("click", (e) => {
 	validate_inputs();
 });
 
+/**
+ * validate the input of the user when he click on the login button
+ * @returns 
+ */
 function validate_inputs() {
 	let usernameValue = username.querySelector("input").value.trim()
 	let passwordValue = password.querySelector("input").value.trim()
@@ -126,10 +162,10 @@ function validate_inputs() {
 			if(userData.connectingNumber === 0){
 				alert("התחברת בהצלחה");
 			}else{
-				alert("התחברת בהצלחה התחברות אחרונה בתאריך " + userData.lastTimeToConnect );
+				alert("התחברת בהצלחה התחברות אחרונה בתאריך " + new Date(userData.lastTimeToConnect).toLocaleString());
 			}
 			userData.connectingNumber++;
-			userData.lastTimeToConnect = new Date().toLocaleString();
+			userData.lastTimeToConnect = new Date();
 			localStorage.setItem(userData.usernameValue,JSON.stringify(userData));
 			window.location.href = "../html/all_games.html";
 		} else {
@@ -145,6 +181,9 @@ function validate_inputs() {
 
 singInBtn.onclick = move_to_singInBtn;
 
+/**
+ * change the page to the sing in page
+ */
 function move_to_singInBtn() {
 	mailField.style.maxHeight = "0";
 	secondPassword.style.maxHeight = "0";
@@ -161,6 +200,9 @@ function move_to_singInBtn() {
 
 singUpBtn.onclick = move_to_singUpBtn;
 
+/**
+ * change the page to the sing up page
+ */
 function move_to_singUpBtn() {
 	mailField.style.maxHeight = "60px";
 	secondPassword.style.maxHeight = "60px";
