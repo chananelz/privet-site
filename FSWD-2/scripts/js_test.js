@@ -2,9 +2,131 @@
  * @file: js_test.js
  * @fileoverview: This file contains the code for the quiz page.
  * @author : Chananel Zaguri
- * 
+ * @link : https://chananel-zaguri.netlify.app/
+ * @version: 20.12.2022 13:42:00
  * 
  */
+
+// #region  Questions
+let beginnerQuestion = [
+	{
+		numb: 1,
+		answer: "==!",
+		question: " איזה אופרטור מחזיר אמת אם הערכים שהוא משווה אינם שווים?",
+		Options: [
+			"<>",
+			"~",
+			"==!",
+			"!=="
+		]
+	},
+	{
+		numb: 2,
+		answer: " פונקצית forEach היא כללית, אבל הפונקציה for ניתנת לשימוש רק עם מערך.",
+		question: " איך הפונקציה forEach שונה מהפונקציה for?",
+		Options: [
+			"רק הפונקציה for משתמשת בפונקציה callback.",
+			"פונקצית forEach היא כללית, אבל הפונקציה for ניתנת לשימוש רק עם מערך.",
+			" רק הפונקציה forEach מאפשרת לך לציין את המחזיק שלך.",
+			" פונקצית forEach היא כללית, אבל הפונקציה for ניתנת לשימוש רק עם מערך."
+		]
+	},
+	{
+		numb: 3,
+		answer: "let rate = 100",
+		question: " איזה הצהרה היא הדרך הנכונה ליצור משתנה בשם rate ולהקצות לו את הערך 100?",
+		Options: [
+			"let rate = 100",
+			"let 100 = rate",
+			"100 = let rate",
+			"rate = 100"
+		]
+	},
+	{
+		numb: 4,
+		answer: "Arguments",
+		question: " איזה משתנה הוא פרמטר מרומז עבור כל פונקציה ב-JavaScript",
+		Options: [
+			"args",
+			"Arguments",
+			"argumentsList",
+			"argsArray"
+		]
+	},
+	{
+		numb: 5,
+		answer: "\"number\"",
+		question: " מה התוצאה של הפקודה \"console.log(typeof 42)\" ?",
+		Options: [
+			"\"number\"",
+			"\"string\"",
+			"\"value\"",
+			"\"integer\""
+		]
+	}
+];
+
+let advancedQuestion = [
+	{
+		numb: 1,
+		answer: "כדי לוודא שהמשימות המופיעות יותר למטה בקוד שלך לא מופעלות עד שהמשימות המוקדמות הסתיימו",
+		question: " מה מההגדים הבאים מהווה סיבה טובה להשתמש בכלים של תיכנות מקבילי כמו async function?",
+		Options: [
+			"כדי להתחיל משימות שעשויות לקחת זמן מה ללא חסימת משימות משניות מהפעלה מיידית",
+			"כדי לוודא שהמשימות המופיעות יותר למטה בקוד שלך לא מופעלות עד שהמשימות המוקדמות הסתיימו",
+			"כדי להפוך את הקוד שלך למהיר יותר",
+			"כדי להבטיח שהמחסנית של הקריאות תשאיר את המבנה LIFO (Last in, First Out)"
+		]
+	},
+	{
+		numb: 2,
+		answer: "firstName",
+		question: "מה הנחשב לשם תקין למשתנה מבין כל האפשרויות הבאות?",
+		Options: [
+			"5thItem",
+			"firstName",
+			"grand total",
+			"function"
+		]
+	},
+	{
+		numb: 3,
+		answer: "preventDefault",
+		question: "בחר את המתודה המבטלת את התנהגות ברירת המחדל של האירוע?",
+		Options: [
+			"cancel",
+			"stop",
+			"preventDefault",
+			"prevent"
+		]
+	},
+	{
+		numb: 4,
+		answer: "appendChild",
+		question: "איזה מתודה ניתנת לשימוש כדי לצרף צומת DOM אחד לאחר?",
+		Options: [
+			"attachNode",
+			"getNode",
+			"querySelector",
+			"appendChild"
+		]
+	},
+	{
+		numb: 5,
+		answer: "continue",
+		question: "איזה הצהרה ניתנת לשימוש כדי לדלג על איטרציה בלולאה?",
+		Options: [
+			"break",
+			"pass",
+			"skip",
+			"continue"
+		]
+	}
+
+];
+
+//#endregion
+
 
 const start_btn = document.getElementById("111");
 const info_box = document.querySelector(".info_box");
@@ -19,6 +141,7 @@ const timeOff = quiz_box.querySelector("header .time_text");
 
 const allUsers = findAllUsers();
 const currentUser = findCurrentUser();
+let question = initializationQuestion();
 
 /**
  * this function is responsible for bringing the user from the local storage
@@ -250,6 +373,11 @@ function showResultBox() {
 		scoreText.innerHTML += '<span>' + (i + 1) + '. משתמש ' + users[i].usernameValue + ' - סה"כ ניקוד ' + users[i].total_score + '</span>';
 	}
 
+	if (currentUser.total_score > 10) {
+		setCookie(currentUser.usernameValue, "medium", 30);
+	} else {
+		setCookie(currentUser.usernameValue, "basic", 30);
+	}
 
 }
 
@@ -278,7 +406,7 @@ function startTimerLine(time) {
  * this event is responsible for the end the quiz
  */
 quit_quiz.addEventListener("click", () => {
-	window.location.reload();
+	window.location.href = "../html/all_games.html";
 });
 
 /**
@@ -292,6 +420,7 @@ restart_quiz.addEventListener("click", () => {
 	timeValue = 15;
 	widthValue = 0;
 	userScore = 0;
+	question = initializationQuestion();
 	showQuestions();
 	queCounter();
 	clearInterval(counter);
@@ -301,4 +430,62 @@ restart_quiz.addEventListener("click", () => {
 	next_btn.style.display = "none";
 	timeOff.textContent = "הזמן שנותר";
 });
+
+
+function initializationQuestion() {
+	let currentLevel = getCookie(currentUser.usernameValue);
+	const scoreText = quiz_box.querySelector(".title");
+
+	if (currentLevel === "medium") {
+		scoreText.textContent = "חידון מתקדם שפת javascript";
+		return advancedQuestion;
+	} else {
+		scoreText.textContent = "חידון בסיסי שפת javascript";
+		return beginnerQuestion;
+	}
+
+}
+
+
+/**
+ * This function is responsible for set the level of the user
+ * the level is based on the total score of the user
+ * the level is saved in the cookie
+ * 
+ * @param {*} user_name - the name of the user
+ * @param {*} user_level - the level of the user
+ * @param {*} expiry - the expiry date of the cookie
+ */
+function setCookie(user_name, user_level, expiry = 20) {
+	const d = new Date();
+	d.setTime(d.getTime() + (expiry * 24 * 60 * 60 * 1000));
+	let expires = "expires=" + d.toUTCString();
+	document.cookie = user_name + "=" + user_level + ";" + expires + ";path=/";
+}
+
+
+/**
+ * This function is responsible for get the level of the user from the cookie 
+ * if the cookie is not exist the function return empty string
+ * @param {*} user_name  the name of the user
+ * @returns  empty string if the cookie is not exist or the level of the user
+ */
+function getCookie(user_name) {
+	let name = user_name + "=";
+	let ca = document.cookie.split(';');
+	for (let i = 0; i < ca.length; i++) {
+		let c = ca[i];
+		while (c.charAt(0) === ' ') {
+			c = c.substring(1);
+		}
+		if (c.indexOf(name) === 0) {
+			return c.substring(name.length, c.length);
+		}
+	}
+	return "";
+}
+
+
+
+
 

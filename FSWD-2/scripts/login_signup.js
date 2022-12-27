@@ -2,6 +2,8 @@
  * @file: login_signup.js
  * @author: Chananel Zaguri 
  * @fileoverview: This file contains the code for the login and signup pages.
+ * @link : https://chananel-zaguri.netlify.app/
+ * @version: 20.12.2022 13:42:00
  */
 
 // @ts-ignore
@@ -114,6 +116,9 @@ function setSuccessFor(input) {
  * @returns 
  */
 function isEmail(email) {
+	// I suggest you to use basic regex for email validation - /^\S+@\S+\.\S+$/
+	// but if you want to use more complex regex, you can use this one
+	// https://emailregex.com/
 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
 
