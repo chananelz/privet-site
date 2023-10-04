@@ -3,14 +3,227 @@
 
 <head>
   <title>Chananel Zaguri</title>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   <meta charset="utf-8"/>
 </head>
 
-<body>
-	<div class="main">
-	<div>ppp yy>
 
-	</div>
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+
+            <!-- Logo -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">DE|JI</a>
+
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-links-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- /Logo -->
+
+            <!-- nav links -->
+            <div class="collapse navbar-collapse" id="nav-links-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#homeSection">Home</a></li>
+                    <li><a href="#aboutSection">About</a></li>
+                    <li><a href="#portfolioSection">Portfolio</a></li>
+                    <li><a href="#contactSection">Contact</a></li>
+
+                </ul>
+            </div>
+            <!-- /nav links -->
+        </div>
+    </nav>
+    <!-- /Header -->
+
+
+    <section id="homeSection" class="section background-section home">
+
+        <!-- Logo -->
+        <div class="home-logo text-center">
+            <h1>DE|JI</h1>
+            <hr>
+            <h2>Design</h2>
+        </div>
+        <!-- /Logo -->
+
+        <!-- Social links -->
+        <div class="social-links">
+            <a href="https://twitter.com/movrax" target="_blank" class="social-link btn btn-default"><img class="social-image" src="http://icons.iconarchive.com/icons/dakirby309/windows-8-metro/24/Web-Twitter-alt-2-Metro-icon.png">Twitter</a>
+            <a href="https://github.com/deandersson" target="_blank" class="social-link btn btn-default"><img class="social-image" src="http://icons.iconarchive.com/icons/icons8/windows-8/24/Programming-Github-icon.png">GitHub</a>
+            <a href="https://plus.google.com/u/0/108342482887771416137" target="_blank" class="social-link btn btn-default"><img class="social-image" src="http://icons.iconarchive.com/icons/dakirby309/windows-8-metro/24/Web-Google-plus-alt-Metro-icon.png">Google+</a>
+
+            <a href="https://www.freecodecamp.com/deandersson" target="_blank" class="social-link btn btn-default"><img class="social-image" src="http://thumb9.shutterstock.com/thumb_small/1571366/293517422/stock-vector-fire-flames-fire-burns-vector-black-icons-on-white-background-293517422.jpg">FreeCodeCamp</a>
+        </div>
+        <!-- /Social links -->
+
+    </section>
+    <!-- /HomeSection -->
+
+
+    <section id="aboutSection" class="section about">
+
+        <!-- Column 1 -->
+        <div class="about-col col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-5 ">
+            <h1 class="section-title">About:</h1>
+
+            <p><b>Construction engineer going computer sciency playing with designing.</b>
+                <br>
+                <br> I love to solve problems and to do it in the most elegent and efficent way. Add to the mix some teamwork and the ideal environment appears.
+                <br>
+                <br> Originally a self-taught developer. After I finished construction I decided to enroll in "Mid Sweden University" to get a degree in computer science. Later on I found "FreeCodeCamp" which have an awesome curriculum to complement my other studies.
+                Which is where im at now.
+                <br>
+                <br> Currently my main focus lies on deepen my knowledge in:
+                <b><ul style="list-style-type: circle; padding-left: 20px;">
+            <li>HTML, CSS, Js</li>
+            <li>PHP</li>
+            </ul></b>
+                <br> Also some basic knowledge in:
+                <b>
+            <ul style="list-style-type: circle; padding-left: 20px;">
+            <li>C++</li>
+            <li>Server administration</li>
+            <li>Networking</li>           
+            </ul></b>
+            </p>
+        </div>
+        <!-- /Column 1 -->
+
+        <!-- Create a line break on xs devices -->
+        <div class="clearfix visible-xs-block"></div>
+
+        <!-- Column 2 At the moment empty since I am incapable of taking pictures of myself....-->
+        <div class="about-col col-xs-offset-3 col-xs-6 col-sm-offset-1 col-sm-5">
+
+            <!-- Maybe a picture -->
+
+        </div>
+        <!-- /Column 2 -->
+    </section>
+
+    <section id="portfolioSection" class="section background-section portfolio">
+
+        <!-- Portfolio container -->
+        <div class="portfolio-container container center-block;">
+            <h1 class="section-title col-xs-12">Portfolio</h1>
+            <hr class="divider">
+
+            <!-- Everything is a big row and is handled with bootstrap grid -->
+            <div class="row portfolio-row">
+
+                <!-- Item 1 -->
+              <div class="portfolio-item col-md-4 col-xs-6">
+                <a href="https://codepen.io/delkasko/full/LVKzGY" target="_blank">
+                    <div class="portfolio-img-wrapper">
+                        <img class="img-responsive portfolio-img" src="https://scontent-arn2-1.xx.fbcdn.net/hphotos-xpt1/v/t1.0-9/11061956_10207579615193096_415354462917995870_n.jpg?oh=c29b271225c02ab1f2a3619a3b858a46&oe=566B978F">
+                  </div>
+                        <p class="item-title">Random Quote Machine</p>
+                        <p class="item-description">Get your daily inspirational quote!</p>
+                    
+                </a></div>
+
+                <!-- Item 2 -->
+                <a href="#" target="_blank">
+                    <div class="portfolio-item col-md-4 col-xs-6">
+                      <div class="portfolio-img-wrapper">
+                        <img class="img-responsive portfolio-img" src="http://lorempixel.com/400/200/">
+                      </div>
+                        <p class="item-title">Item 2</p>
+                        <p class="item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    </div>
+                </a>
+
+                <!-- Item 3 -->
+                <a href="#" target="_blank">
+                    <div class="clearfix visible-sm-block"></div>
+                    <div class="portfolio-item col-md-4 col-xs-6">
+                        <img class="img-responsive portfolio-img" src="http://lorempixel.com/400/200/">
+                        <p class="item-title">Item 3</p>
+                        <p class="item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    </div>
+                </a>
+
+                <!-- Item 4 -->
+                <a href="#" target="_blank">
+                    <div class="clearfix hidden-xs hidden-sm"></div>
+                    <div class="portfolio-item col-md-4 col-xs-6">
+                        <img class="img-responsive portfolio-img" src="http://lorempixel.com/400/200/">
+                        <p class="item-title">Item 4</p>
+                        <p class="item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    </div>
+                </a>
+
+                <!-- Item 5 -->
+                <a href="#" target="_blank">
+                    <div class="clearfix visible-xs-block visible-sm-block"></div>
+                    <div class="portfolio-item col-md-4 col-xs-6">
+                        <img class="img-responsive portfolio-img" src="http://lorempixel.com/400/200/">
+                        <p class="item-title">Item 5</p>
+                        <p class="item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    </div>
+                </a>
+
+                <!-- Item 6 -->
+                <a href="#" target="_blank">
+                    <div class="portfolio-item col-md-4 col-xs-6">
+
+                        <img class="img-responsive portfolio-img" src="http://lorempixel.com/400/200/">
+                        <p class="item-title">Item 6</p>
+                        <p class="item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+
+                    </div>
+                </a>
+
+            </div>
+            <!-- / Row -->
+
+        </div>
+        <!-- / Portfolio container -->
+
+    </section>
+    <!-- /Portfolio section -->
+
+
+    <section id="contactSection" class="section contact">
+
+
+        <div class="contact-container">
+            <h2 class="contact-mail">Contact DE|JI Design at <a href="mailto:dennis.andersson88@gmail.com" target="_blank">dennis.andersson88@gmail.com</a></h2>
+
+            <!-- Social links -->
+            <div class="pull-left social-links">
+                <a href="https://twitter.com/movrax" target="_blank" class="social-link btn btn-default"><img class="social-image" src="http://icons.iconarchive.com/icons/dakirby309/windows-8-metro/24/Web-Twitter-alt-2-Metro-icon.png">Twitter</a>
+                <a href="https://github.com/deandersson" target="_blank" class="social-link btn btn-default"><img class="social-image" src="http://icons.iconarchive.com/icons/icons8/windows-8/24/Programming-Github-icon.png">GitHub</a>
+                <a href="https://plus.google.com/u/0/108342482887771416137" target="_blank" class="social-link btn btn-default"><img class="social-image" src="http://icons.iconarchive.com/icons/dakirby309/windows-8-metro/24/Web-Google-plus-alt-Metro-icon.png">Google+</a>
+
+                <a href="https://www.freecodecamp.com/deandersson" target="_blank" class="social-link btn btn-default"><img class="social-image" src="http://thumb9.shutterstock.com/thumb_small/1571366/293517422/stock-vector-fire-flames-fire-burns-vector-black-icons-on-white-background-293517422.jpg">FreeCodeCamp</a>
+            </div>
+            <!-- /Social links -->
+
+        </div>
+        <!-- /Contact container -->
+
+    </section>
+    <!-- /Contact section -->
+
+    <footer>
+        <ul class="link-list">
+            <li><a href="#homeSection">Home</a></li>
+            <li><a href="#aboutSection">About</a></li>
+            <li><a href="#portfolioSection">Portfolio</a></li>
+            <li><a href="#contactSection">Contact</a></li>
+        </ul>
+        <br>
+        <p class="small-text">Copyright bla bla</p>
+    </footer>
+
 </body>
 
 </html>
