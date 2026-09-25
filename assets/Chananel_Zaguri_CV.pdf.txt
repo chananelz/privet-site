@@ -1,0 +1,73 @@
+CONTACT
+SKILLS
+LANGUAGES
+0535304753
+chananelz@gmail.com
+Netanya
+Systems & Architecture:
+HW/SW Co-Design
+Hardware Modeling
+Software Infrastructure
+Simulators & Tools
+Performance Benchmarking
+Performance & Optimization:
+SIMD & Vectorization
+Compiler Optimization
+Complexity Reduction
+Multithreading
+Linux Environment
+Domains:
+ASIC
+Research Implementation
+Applied Cryptography
+Blockchain
+Programming Languages:
+Python
+Rust
+Modern C++
+English (Professional Working
+Proficiency)
+Hebrew (Native)
+CHANANEL ZAGURI
+Hardware-Oriented Software Developer | Python, Rust, C++ | Pre-Silicon Simulation
+WORK EXPERIENCE
+EDUCATION
+Software Developer 2024 - PRESENT
+Chain Reaction Ltd.
+Au 2023 - 2024tomation Engineer
+Chain Reaction Ltd.
+Student System V&V Engineer 2022 - 2023
+Design and implement bit-accurate simulators for cryptographic
+hardware accelerators, collaborating closely with design and
+verification teams to refine architectures from concept to silicon.
+Bridge the gap between advanced cryptographic theory and functional
+systems by implementing and optimizing complex cryptographic
+algorithms with a strong emphasis on hardware acceleration (using
+Python and C++).
+Leverage Rust's safety and performance features to translate complex
+cryptographic designs into robust, highly scalable, and verifiable
+software models.
+Built automated CI pipelines for nightly regression testing and reporting.
+Designed and developed automated test infrastructure synced with Jira,
+eliminating manual reporting and speeding up delivery.
+Designed and developed a GUI for post-production system testing with
+parallel test execution. Took ownership from design and development to
+deployment across lab environments and ongoing maintenance.
+Validated a full-stack ASIC Bitcoin mining platform, covering
+embedded firmware, blockchain protocols, and Web APIs.
+Owned the complete testing lifecycle, designing STPs and executing
+automated suites to monitor hash rates, thermals, and PSU reliability.
+High School Studies - Horev Jerusalem 2009 - 2013
+5 units of mathematics - 97
+Majors - Physics, Computer Science, and Economics
+Software Engineering (B.Sc.) - JCT
+GPA 95, Dean's Award
+2019 - 2023
+Research Assistant to Professor Eric Fredj 2021 - 2022
+JCT
+Researched, maintained, and optimized a Python-based software
+simulator to model and analyze ocean current dynamics.
+Chain Reaction Ltd.
+linkedin.com/in/chananel-zaguri
+
+[PDF page 1 image attached. Read this image directly to extract content.]
